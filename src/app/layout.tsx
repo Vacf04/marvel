@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import StyledComponentsRegistry from "@/lib/styledComponents/registry";
-import "./globals.css";
 import { GlobalStyle } from "./globalStyles";
-import styled from "styled-components";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const robotoFont = Roboto({
   variable: "--font-roboto",
@@ -15,16 +15,6 @@ export const metadata: Metadata = {
   description: "Buy your marvel comic books!",
 };
 
-const App = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh + 10rem);
-`;
-
-const AppBody = styled.main`
-  flex: 1;
-`;
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -35,9 +25,11 @@ export default function RootLayout({
       <body className={`${robotoFont.variable}`}>
         <StyledComponentsRegistry>
           <GlobalStyle />
-          <App>
-            <AppBody>{children}</AppBody>
-          </App>
+          <div className="App">
+            <Header />
+            <main className="AppBody">{children}</main>
+            <Footer />
+          </div>
         </StyledComponentsRegistry>
       </body>
     </html>
