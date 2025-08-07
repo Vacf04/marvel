@@ -4,6 +4,8 @@ import StyledComponentsRegistry from "@/lib/styledComponents/registry";
 import { GlobalStyle } from "./globalStyles";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { ComicsProvider } from "@/context/ComicsContext";
+import { CartProvider } from "@/context/CartContext";
 
 const robotoFont = Roboto({
   variable: "--font-roboto",
@@ -24,12 +26,16 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${robotoFont.variable}`}>
         <StyledComponentsRegistry>
-          <GlobalStyle />
-          <div className="App">
-            <Header />
-            <main className="AppBody">{children}</main>
-            <Footer />
-          </div>
+          <ComicsProvider>
+            <CartProvider>
+              <GlobalStyle />
+              <div className="App">
+                <Header />
+                <main className="AppBody">{children}</main>
+                <Footer />
+              </div>
+            </CartProvider>
+          </ComicsProvider>
         </StyledComponentsRegistry>
       </body>
     </html>
