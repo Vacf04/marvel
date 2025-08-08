@@ -1,6 +1,12 @@
 "use client";
 import { getComics } from "@/actions/comics-get";
-import React, { createContext, useState, useEffect, ReactNode } from "react";
+import {
+  createContext,
+  useState,
+  useEffect,
+  ReactNode,
+  useContext,
+} from "react";
 import { Comic } from "@/actions/comics-get";
 
 export type ComicsContextProps = {
@@ -17,7 +23,7 @@ export type ComicWithRarity = Comic & {
 export const ComicsContext = createContext<ComicsContextProps | null>(null);
 
 export const useComics = () => {
-  const context = React.useContext(ComicsContext);
+  const context = useContext(ComicsContext);
   if (context === null) {
     throw new Error("useContext must be used inside a Provider");
   }
