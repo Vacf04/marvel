@@ -49,7 +49,7 @@ export const ComicsProvider = ({ children }: { children: ReactNode }) => {
           const numberOfRares = Math.floor(totalComics * 0.1);
           let i = 0;
           const randomIndexes: number[] = [];
-          while (i <= numberOfRares) {
+          while (i < numberOfRares) {
             const randomIndex = Math.floor(Math.random() * totalComics);
             if (!randomIndexes.includes(randomIndex)) {
               randomIndexes.push(randomIndex);
