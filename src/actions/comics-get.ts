@@ -45,7 +45,7 @@ export async function getComics(
       .update(ts + privateKey + publicKey)
       .digest("hex");
 
-    //const url = `https://gateway.marvel.com/v1/public/comics?ts=${ts}&apikey=${publicKey}&hash=${hash}&limit=${limit}&offset=${offset}`;
+    const url = `https://gateway.marvel.com/v1/public/comics?orderBy=-modified&ts=${ts}&apikey=${publicKey}&hash=${hash}&limit=${limit}&offset=${offset}`;
 
     const response = await fetch(url);
 

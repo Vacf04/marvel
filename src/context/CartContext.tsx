@@ -43,6 +43,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         return [...prevItems, { ...comicToAdd, quantity: 1 }];
       });
     }
+    console.log(cartItems);
   };
 
   const applyCoupon = (couponCode: string) => {
