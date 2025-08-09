@@ -27,11 +27,11 @@ const HeaderStyled = styled.header`
 
 const CartLink = styled(Link)<CartLinkProps>`
   position: relative;
-  display: "block";
+  display: block;
   &::after {
     content: "${(props) => props.cartquantity}";
     position: absolute;
-    top: -2rem;
+    top: -0.85rem;
     right: -0.75rem;
     width: 0.25rem;
     height: 0.25rem;

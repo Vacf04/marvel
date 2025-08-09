@@ -66,12 +66,17 @@ export default function PaginationComics() {
               setCurrentPage(1);
             }}
             disabled={currentPage <= 2}
+            data-cy="first-page-button"
           >
             First
           </ButtonPage>
         </li>
         <li>
-          <ButtonPage onClick={goPrevPage} disabled={currentPage === 1}>
+          <ButtonPage
+            onClick={goPrevPage}
+            disabled={currentPage === 1}
+            data-cy="prev-page-button"
+          >
             {currentPage - 1}
           </ButtonPage>
         </li>
@@ -82,6 +87,7 @@ export default function PaginationComics() {
           <ButtonPage
             onClick={goNextPage}
             disabled={currentPage === totalPages}
+            data-cy="next-page-button"
           >
             {currentPage + 1}
           </ButtonPage>
@@ -93,6 +99,7 @@ export default function PaginationComics() {
               setCurrentPage(totalPages);
             }}
             disabled={currentPage === totalPages}
+            data-cy="last-page-button"
           >
             Last
           </ButtonPage>

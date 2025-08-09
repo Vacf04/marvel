@@ -63,10 +63,10 @@ const PriceContainer = styled.div`
 
 export default function ComicCard({ comic }: { comic: ComicWithRarity }) {
   return (
-    <article>
+    <article data-cy="comic-card">
       <Link href={`/comic/${comic.id}`}>
         <ImageContainer>
-          {comic.isRare && <RareTag>RARE</RareTag>}
+          {comic.isRare && <RareTag data-cy="rare-comic">RARE</RareTag>}
           <ComicThumb
             src={comic.thumbnail.path + "." + comic.thumbnail.extension}
             alt={comic.title + " thumb"}
