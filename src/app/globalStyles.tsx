@@ -1,6 +1,14 @@
 "use client";
 
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, keyframes } from "styled-components";
+
+export const ShowLeft = keyframes`
+  to {
+    opacity: 1;
+    transform: initial;
+  }
+}
+`;
 
 export const GlobalStyle = createGlobalStyle`
   :root {

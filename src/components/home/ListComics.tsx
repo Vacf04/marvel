@@ -4,10 +4,14 @@ import styled from "styled-components";
 import Loading from "../helper/Loading";
 import ComicCard from "./ComicCard";
 import PaginationComics from "./PaginationComics";
+import { ShowLeft } from "@/app/globalStyles";
 
 const ComicsSection = styled.section`
   padding-top: 2rem;
   padding-bottom: 2rem;
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: ${ShowLeft} 0.3s forwards;
 `;
 
 const ComicsSectionContent = styled.div`
