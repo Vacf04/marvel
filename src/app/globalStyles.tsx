@@ -4,10 +4,13 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   :root {
-    --primary-color: #f0f0f0;
-    --secondary-color: #121212;
+    --primary-color: #333;
+    --secondary-color: #444;
     --main-color: #e62429;
-    --background-color: #212121;
+    --background-color:  #fff;
+
+    --border-radius: 0.5rem;
+    --transition: 0.3s;
   }
 
   * {
@@ -45,5 +48,6 @@ export const GlobalStyle = createGlobalStyle`
     flex: 1;
     background-color: var(--background-color);
     color: var(--primary-color);
+    padding-top: 5rem;
   }
 `;

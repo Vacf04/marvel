@@ -8,8 +8,8 @@ const FooterStyled = styled.footer`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
+  background-color: var(--primary-color);
+  color: var(--background-color);
 `;
 
 export default function Footer() {
