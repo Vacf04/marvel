@@ -30,7 +30,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cartItems, setCartItems] = useState<CartItemsComic[]>([]);
   const [discount, setDiscount] = useState({
     value: 0,
-    type: "NONE",
+    type: "initial",
   });
   const { comics } = useComics();
 
@@ -52,7 +52,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const removeFromCart = (comicId: number) => {
-    const comicToRemove = comics?.find((comic) => comic.id === comicId);
+    const comicToRemove = cartItems?.find((comic) => comic.id === comicId);
     if (comicToRemove) {
       setCartItems((prevItems) => {
         const cartItems = prevItems.filter((item) => item.id !== comicId);
@@ -62,7 +62,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const plusQuantity = (comicId: number) => {
-    const comicToAdd = comics?.find((comic) => comic.id === comicId);
+    const comicToAdd = cartItems.find((comic) => comic.id === comicId);
     if (comicToAdd) {
       setCartItems((prevItems) => {
         return prevItems.map((item) =>
@@ -78,8 +78,9 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const minusQuantity = (comicId: number) => {
-    const comicToMinus = comics?.find((comic) => comic.id === comicId);
+    const comicToMinus = cartItems?.find((comic) => comic.id === comicId);
     if (comicToMinus) {
+      if (comicToMinus.quantity === 1) return;
       setCartItems((prevItems) => {
         return prevItems.map((item) =>
           item.id === comicId

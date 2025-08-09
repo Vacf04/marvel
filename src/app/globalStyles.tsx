@@ -16,6 +16,7 @@ export const GlobalStyle = createGlobalStyle`
     --secondary-color: #444;
     --main-color: #e62429;
     --background-color:  #fff;
+    --hover-main-color: #b31d22;
 
     --border-radius: 0.5rem;
     --transition: 0.3s;
@@ -40,12 +41,6 @@ export const GlobalStyle = createGlobalStyle`
   img {
   display: block;
   max-width: 100%;
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
   }
   .App {
     display: flex;
