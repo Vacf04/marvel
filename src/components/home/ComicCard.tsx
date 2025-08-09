@@ -45,9 +45,10 @@ const RareTag = styled.div`
   border-radius: 0 0.15rem 0.15rem 0;
 `;
 
-const ComicTitle = styled.p`
-  max-width: 25ch;
+const ComicTitle = styled.h3`
+  max-width: 22ch;
   margin-top: 0.75rem;
+  font-size: 1.1rem;
   font-weight: bold;
   margin-bottom: 0.25rem;
 `;
@@ -62,7 +63,7 @@ const PriceContainer = styled.div`
 
 export default function ComicCard({ comic }: { comic: ComicWithRarity }) {
   return (
-    <div>
+    <article>
       <Link href={`/comic/${comic.id}`}>
         <ImageContainer>
           {comic.isRare && <RareTag>RARE</RareTag>}
@@ -79,6 +80,6 @@ export default function ComicCard({ comic }: { comic: ComicWithRarity }) {
         <p>${comic.price}</p>
         <AddToCartButton comicId={comic.id} />
       </PriceContainer>
-    </div>
+    </article>
   );
 }

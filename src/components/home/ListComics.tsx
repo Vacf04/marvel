@@ -3,6 +3,7 @@ import { useComics } from "@/context/ComicsContext";
 import styled from "styled-components";
 import Loading from "../helper/Loading";
 import ComicCard from "./ComicCard";
+import PaginationComics from "./PaginationComics";
 
 const ComicsSection = styled.section`
   padding-top: 2rem;
@@ -13,6 +14,9 @@ const ComicsSectionContent = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+`;
+
+const ComicsList = styled.ul`
   display: grid;
   justify-items: center;
   row-gap: 2rem;
@@ -37,8 +41,15 @@ export default function ListComics() {
   return (
     <ComicsSection>
       <ComicsSectionContent>
-        {comics &&
-          comics.map((comic) => <ComicCard comic={comic} key={comic.id} />)}
+        <ComicsList>
+          {comics &&
+            comics.map((comic) => (
+              <li key={comic.id}>
+                <ComicCard comic={comic} />
+              </li>
+            ))}
+        </ComicsList>
+        <PaginationComics />
       </ComicsSectionContent>
     </ComicsSection>
   );

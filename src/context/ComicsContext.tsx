@@ -13,6 +13,10 @@ export type ComicsContextProps = {
   comics: ComicWithRarity[] | null;
   loading: boolean;
   errorMessage: string | null;
+  setPagination: React.Dispatch<React.SetStateAction<number>>;
+  currentPage: number;
+  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
+  totalResults: number;
 };
 
 export type ComicWithRarity = Comic & {
@@ -34,16 +38,21 @@ export const ComicsProvider = ({ children }: { children: ReactNode }) => {
   const [comics, setComics] = useState<ComicWithRarity[] | null>(null);
   const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [pagination, setPagination] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalResults, setTotalResults] = useState(0);
 
   useEffect(() => {
     const fetchComics = async () => {
       try {
         setLoading(true);
         setErrorMessage(null);
-        const { data: comicData, error } = await getComics();
+        const { data: comicData, error } = await getComics(20, pagination);
         if (!comicData && error) {
           throw new Error(error);
         }
+        console.log(comicData);
+        setTotalResults(comicData ? comicData.total : 0);
         const totalComics = comicData?.results.length;
         if (totalComics) {
           const numberOfRares = Math.floor(totalComics * 0.1);
@@ -78,10 +87,20 @@ export const ComicsProvider = ({ children }: { children: ReactNode }) => {
     };
 
     fetchComics();
-  }, []);
+  }, [pagination]);
 
   return (
-    <ComicsContext.Provider value={{ comics, loading, errorMessage }}>
+    <ComicsContext.Provider
+      value={{
+        comics,
+        loading,
+        errorMessage,
+        setPagination,
+        currentPage,
+        setCurrentPage,
+        totalResults,
+      }}
+    >
       {children}
     </ComicsContext.Provider>
   );
