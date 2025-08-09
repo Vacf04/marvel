@@ -7,6 +7,11 @@ import Link from "next/link";
 import { MdShoppingCart } from "react-icons/md";
 import { useCart } from "@/context/CartContext";
 
+type CartLinkProps = {
+  cartquantity: string | number;
+  displayquantity: "flex" | "none";
+};
+
 const HeaderStyled = styled.header`
   box-shadow: 0 1px 1px #0000001a;
   position: fixed;
@@ -20,7 +25,7 @@ const HeaderStyled = styled.header`
   padding-bottom: 1rem;
 `;
 
-const CartLink = styled(Link)`
+const CartLink = styled(Link)<CartLinkProps>`
   position: relative;
   display: "block";
   &::after {
