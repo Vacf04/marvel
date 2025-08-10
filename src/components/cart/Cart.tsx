@@ -14,9 +14,10 @@ import {
 } from "./Cart.styles";
 import { ComicItemList } from "./Cart.styles";
 import CartSummary from "./CartSummary";
+import Notification from "../helper/Notification";
 
 export default function Cart() {
-  const { cartItems, discount, applyCoupon } = useCart();
+  const { cartItems, discount, applyCoupon, message } = useCart();
   const [price, setPrice] = useState(0);
   const [totalDiscountValue, setTotalDiscountValue] = useState(0);
   const [finalPrice, setFinalPrice] = useState<number | null>(null);
@@ -90,27 +91,30 @@ export default function Cart() {
       </CartSection>
     );
   return (
-    <CartSection>
-      <CartSectionContent>
-        <CartComicsContainer>
-          <CartItemsTitle>Comic Books</CartItemsTitle>
-          <ul data-cy="cart-comics-list">
-            {cartItems.length > 0 &&
-              cartItems.map((item) => (
-                <ComicItemList key={item.id}>
-                  <CartItem item={item} />
-                </ComicItemList>
-              ))}
-          </ul>
-        </CartComicsContainer>
-        <CartSummary
-          applyCoupon={applyCoupon}
-          finalPrice={finalPrice}
-          errorMessage={errorMessage}
-          price={price}
-          totalDiscountValue={totalDiscountValue}
-        />
-      </CartSectionContent>
-    </CartSection>
+    <>
+      {message && <Notification message={message} />}
+      <CartSection>
+        <CartSectionContent>
+          <CartComicsContainer>
+            <CartItemsTitle>Comic Books</CartItemsTitle>
+            <ul data-cy="cart-comics-list">
+              {cartItems.length > 0 &&
+                cartItems.map((item) => (
+                  <ComicItemList key={item.id}>
+                    <CartItem item={item} />
+                  </ComicItemList>
+                ))}
+            </ul>
+          </CartComicsContainer>
+          <CartSummary
+            applyCoupon={applyCoupon}
+            finalPrice={finalPrice}
+            errorMessage={errorMessage}
+            price={price}
+            totalDiscountValue={totalDiscountValue}
+          />
+        </CartSectionContent>
+      </CartSection>
+    </>
   );
 }

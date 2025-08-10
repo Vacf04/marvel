@@ -15,6 +15,9 @@ const robotoFont = Roboto({
 export const metadata: Metadata = {
   title: "Marvel Comics",
   description: "Buy your marvel comic books!",
+  icons: {
+    icon: "./favicon.png",
+  },
 };
 
 export default function RootLayout({

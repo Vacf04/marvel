@@ -4,9 +4,12 @@ import {
   CartSummarySection,
   CartSummaryTitle,
   CheckoutButton,
+  ComicsValue,
   DiscountValue,
   FinalPrice,
   InputCoupon,
+  PriceText,
+  PriceValue,
 } from "./CartSummary.styles";
 import ErrorMessage from "../helper/ErrorMessage";
 import { useState } from "react";
@@ -36,10 +39,12 @@ export default function CartSummary({
   return (
     <CartSummarySection>
       <CartSummaryTitle>Summary</CartSummaryTitle>
-      <p>Comics Price: ${price}</p>
+      <ComicsValue>
+        <PriceText>Comic Price:</PriceText>${price}
+      </ComicsValue>
       {totalDiscountValue > 0 && (
         <DiscountValue data-cy="message-coupon">
-          Cupom: - ${totalDiscountValue}{" "}
+          Cupom: <PriceValue>- ${totalDiscountValue}</PriceValue>
         </DiscountValue>
       )}
       <ErrorMessage error={errorMessage} />
@@ -54,9 +59,12 @@ export default function CartSummary({
         APPLY
       </ApplyCouponButton>
       {!finalPrice || finalPrice <= 0 ? (
-        <p>Final Price:</p>
+        <PriceText>Final Price</PriceText>
       ) : (
-        <FinalPrice>Final Price: ${finalPrice}</FinalPrice>
+        <FinalPrice>
+          <PriceText>Final Price:</PriceText>
+          <PriceValue>${finalPrice}</PriceValue>
+        </FinalPrice>
       )}
       <CheckoutButton>CHECKOUT</CheckoutButton>
     </CartSummarySection>

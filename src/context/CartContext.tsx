@@ -10,6 +10,7 @@ export type CartContextProps = {
   applyCoupon: (couponCode: string) => void;
   plusQuantity: (comicId: number) => void;
   minusQuantity: (comicId: number) => void;
+  message: string | null;
 };
 
 export type CartItemsComic = ComicWithRarity & {
@@ -28,6 +29,7 @@ export const useCart = () => {
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cartItems, setCartItems] = useState<CartItemsComic[]>([]);
+  const [message, setMessage] = useState<string | null>(null);
   const [discount, setDiscount] = useState({
     value: 0,
     type: "initial",
@@ -48,6 +50,10 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         }
         return [...prevItems, { ...comicToAdd, quantity: 1 }];
       });
+      setMessage("Item Added To Cart");
+      setTimeout(() => {
+        setMessage(null);
+      }, 500);
     }
   };
 
@@ -58,6 +64,10 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         const cartItems = prevItems.filter((item) => item.id !== comicId);
         return cartItems;
       });
+      setMessage("Item Removed From Cart");
+      setTimeout(() => {
+        setMessage(null);
+      }, 500);
     }
   };
 
@@ -127,6 +137,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         applyCoupon,
         plusQuantity,
         minusQuantity,
+        message,
       }}
     >
       {children}

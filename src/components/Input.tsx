@@ -9,7 +9,6 @@ const InputStyled = styled.input`
   color: var(--primary-color);
   padding: 0.75rem;
   font-weight: normal;
-  cursor: pointer;
   border-radius: var(--border-radius);
   transition: var(--transition);
   display: block;
