@@ -4,36 +4,23 @@ import CartItem from "./CartItem";
 import { useEffect, useState } from "react";
 import { redirect } from "next/navigation";
 import Button from "../Button";
-import ErrorMessage from "../helper/ErrorMessage";
 import {
-  ApplyCouponButton,
   CartComicsContainer,
   CartEmptyContent,
   CartEmptyTitle,
   CartItemsTitle,
   CartSection,
   CartSectionContent,
-  CartSummary,
-  CartSummaryTitle,
-  CheckoutButton,
-  ComicItemList,
-  DiscountValue,
-  FinalPrice,
-  InputCoupon,
 } from "./Cart.styles";
+import { ComicItemList } from "./Cart.styles";
+import CartSummary from "./CartSummary";
 
 export default function Cart() {
   const { cartItems, discount, applyCoupon } = useCart();
   const [price, setPrice] = useState(0);
   const [totalDiscountValue, setTotalDiscountValue] = useState(0);
-  const [couponInput, setCouponInput] = useState("");
   const [finalPrice, setFinalPrice] = useState<number | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-
-  const handleApplyCoupon = () => {
-    applyCoupon(couponInput);
-    setCouponInput("");
-  };
 
   useEffect(() => {
     const price = cartItems
@@ -114,30 +101,13 @@ export default function Cart() {
               ))}
           </ul>
         </CartComicsContainer>
-        <CartSummary>
-          <CartSummaryTitle>Summary</CartSummaryTitle>
-          <p>Comics Price: ${price}</p>
-          {totalDiscountValue > 0 && (
-            <DiscountValue>Cupom: - ${totalDiscountValue} </DiscountValue>
-          )}
-          <ErrorMessage error={errorMessage} />
-          <InputCoupon
-            type="text"
-            value={couponInput}
-            onChange={(e) => setCouponInput(e.currentTarget.value)}
-            style={{ marginRight: ".2rem" }}
-            placeholder="Type your coupon"
-          />
-          <ApplyCouponButton onClick={handleApplyCoupon}>
-            APPLY
-          </ApplyCouponButton>
-          {!finalPrice || finalPrice <= 0 ? (
-            <p>Final Price:</p>
-          ) : (
-            <FinalPrice>Final Price: ${finalPrice}</FinalPrice>
-          )}
-          <CheckoutButton>CHECKOUT</CheckoutButton>
-        </CartSummary>
+        <CartSummary
+          applyCoupon={applyCoupon}
+          finalPrice={finalPrice}
+          errorMessage={errorMessage}
+          price={price}
+          totalDiscountValue={totalDiscountValue}
+        />
       </CartSectionContent>
     </CartSection>
   );
