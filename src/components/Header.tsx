@@ -75,6 +75,7 @@ export default function Header() {
                 href="/cart"
                 cartquantity={cartItems.length > 0 ? cartItems.length : ""}
                 displayquantity={cartItems.length > 0 ? "flex" : "none"}
+                data-cy="cart-link"
               >
                 <CartIcon />
               </CartLink>

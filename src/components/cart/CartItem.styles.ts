@@ -14,7 +14,7 @@ export const ImageContainer = styled.div`
   overflow: hidden;
   border-radius: var(--border-radius);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  @media(max-width: 400px) {
+  @media(max-width: 550px) {
   min-width: 100px;
   height: 150px;
   }
@@ -39,6 +39,23 @@ export const ItemThumb = styled(Image)`
   }
 `;
 
+export const RareTag = styled.div`
+  width: 4rem;
+  height: 1rem;
+  position: absolute;
+  background-color: var(--secondary-color);
+  top: 0.25rem;
+  left: 0;
+  z-index: 3;
+  color: var(--main-color);
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 0.15rem 0.15rem 0;
+`;
+
+
 export const CartItemArticle = styled.article`
   display: flex;
   gap: 1rem;
@@ -46,7 +63,7 @@ export const CartItemArticle = styled.article`
 
 export const CartItemDescription = styled.div`
   font-size: 1.5rem;
-  @media(max-width: 400px) {
+  @media(max-width: 550px) {
   font-size: 1rem;
   }
 `;
@@ -56,7 +73,7 @@ export const QuantityControl = styled.div`
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  @media(max-width: 400px) {
+  @media(max-width: 550px) {
   gap: 0.5rem;
   }
 `;
@@ -83,7 +100,7 @@ export const ControlButton = styled.button`
 export const PlusQuantityIcon = styled(MdKeyboardArrowRight)`
   width: 1.75rem;
   height: 1.75rem;
-  @media(max-width: 400px) {
+  @media(max-width: 550px) {
   width: 1.25rem;
   height: 1.25rem;
   }
@@ -92,7 +109,7 @@ export const PlusQuantityIcon = styled(MdKeyboardArrowRight)`
 export const MinusQuantityIcon = styled(MdKeyboardArrowLeft)`
   width: 1.75rem;
   height: 1.75rem;
-  @media(max-width: 400px) {
+  @media(max-width: 550px) {
   width: 1.25rem;
   height: 1.25rem;
   }
@@ -100,7 +117,7 @@ export const MinusQuantityIcon = styled(MdKeyboardArrowLeft)`
 export const RemoveFromCartIcon = styled(MdRemoveShoppingCart)`
   width: 1.75rem;
   height: 1.75rem;
-  @media(max-width: 400px) {
+  @media(max-width: 550px) {
   width: 1.25rem;
   height: 1.25rem;
   }

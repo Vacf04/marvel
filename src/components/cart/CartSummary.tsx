@@ -38,7 +38,9 @@ export default function CartSummary({
       <CartSummaryTitle>Summary</CartSummaryTitle>
       <p>Comics Price: ${price}</p>
       {totalDiscountValue > 0 && (
-        <DiscountValue>Cupom: - ${totalDiscountValue} </DiscountValue>
+        <DiscountValue data-cy="message-coupon">
+          Cupom: - ${totalDiscountValue}{" "}
+        </DiscountValue>
       )}
       <ErrorMessage error={errorMessage} />
       <InputCoupon
@@ -48,7 +50,9 @@ export default function CartSummary({
         style={{ marginRight: ".2rem" }}
         placeholder="Type your coupon"
       />
-      <ApplyCouponButton onClick={handleApplyCoupon}>APPLY</ApplyCouponButton>
+      <ApplyCouponButton onClick={handleApplyCoupon} data-cy="button-coupon">
+        APPLY
+      </ApplyCouponButton>
       {!finalPrice || finalPrice <= 0 ? (
         <p>Final Price:</p>
       ) : (

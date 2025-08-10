@@ -82,7 +82,9 @@ export default function Cart() {
     return (
       <CartSection>
         <CartEmptyContent>
-          <CartEmptyTitle>Your Cart is Empty</CartEmptyTitle>
+          <CartEmptyTitle data-cy="cart-empty-title">
+            Your Cart is Empty
+          </CartEmptyTitle>
           <Button onClick={() => redirect("/")}>Go Buy</Button>
         </CartEmptyContent>
       </CartSection>
@@ -92,7 +94,7 @@ export default function Cart() {
       <CartSectionContent>
         <CartComicsContainer>
           <CartItemsTitle>Comic Books</CartItemsTitle>
-          <ul>
+          <ul data-cy="cart-comics-list">
             {cartItems.length > 0 &&
               cartItems.map((item) => (
                 <ComicItemList key={item.id}>

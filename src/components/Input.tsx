@@ -26,5 +26,5 @@ const InputStyled = styled.input`
 export default function Input({
   ...props
 }: PropsWithChildren<InputHTMLAttributes<HTMLInputElement>>) {
-  return <InputStyled {...props} />;
+  return <InputStyled {...props} data-cy="input" />;
 }

@@ -12,6 +12,7 @@ import {
   PlusQuantityIcon,
   QuantityControl,
   RemoveFromCartIcon,
+  RareTag,
 } from "./CartItem.styles";
 
 export default function CartItem({ item }: { item: CartItemsComic }) {
@@ -19,6 +20,7 @@ export default function CartItem({ item }: { item: CartItemsComic }) {
   return (
     <CartItemArticle>
       <ImageContainer>
+        {item.isRare && <RareTag data-cy="rare-item-cart">RARE</RareTag>}
         <ItemThumb
           src={item.thumbnail.path + "." + item.thumbnail.extension}
           alt={item.title + " thumb"}
@@ -34,13 +36,15 @@ export default function CartItem({ item }: { item: CartItemsComic }) {
             <ControlButton
               aria-label="Minus Quantity"
               onClick={() => minusQuantity(item.id)}
+              data-cy="cart-item-minus"
             >
               <MinusQuantityIcon />
             </ControlButton>
-            <p>{item.quantity}</p>
+            <p data-cy="cart-item-quantity">{item.quantity}</p>
             <ControlButton
               aria-label="Plus Quantity"
               onClick={() => plusQuantity(item.id)}
+              data-cy="cart-item-plus"
             >
               <PlusQuantityIcon />
             </ControlButton>
@@ -48,6 +52,7 @@ export default function CartItem({ item }: { item: CartItemsComic }) {
           <ControlButton
             aria-label="Remove From Cart"
             onClick={() => removeFromCart(item.id)}
+            data-cy="cart-item-remove"
           >
             <RemoveFromCartIcon />
           </ControlButton>
