@@ -17,10 +17,8 @@ const LoadingSpinner = styled.div`
   height: 5rem;
   background: transparent;
   border-radius: 50%;
+  border: 0.5rem solid transparent;
   border-top: 0.5rem solid var(--main-color);
-  border-right: 0.5rem solid transparent;
-  border-left: 0.5rem solid transparent;
-  border-bottom: 0.5rem solid transparent;
   animation: ${LoadingAnimation} 0.7s infinite;
 `;
 

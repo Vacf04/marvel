@@ -22,7 +22,11 @@ export default function AddToCartButton({ comicId }: { comicId: number }) {
   const { addToCart } = useCart();
 
   return (
-    <AddToCart onClick={() => addToCart(comicId)} aria-label="Add to cart">
+    <AddToCart
+      onClick={() => addToCart(comicId)}
+      aria-label="Add to cart"
+      data-cy="cart-add-button"
+    >
       <CartIcon />
     </AddToCart>
   );

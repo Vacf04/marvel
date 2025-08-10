@@ -1,41 +1,10 @@
 "use client";
 import { useComics } from "@/context/ComicsContext";
-import styled from "styled-components";
-
-const ButtonPage = styled.button`
-  background-color: transparent;
-  border: none;
-  transition: var(--transition);
-  font-size: 1.25rem;
-  font-weight: bold;
-  padding: 0.5rem;
-  display: ${(props) => (props.disabled ? "none" : "flex")};
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: ${(props) =>
-    props["aria-current"] === "page"
-      ? "var(--main-color)"
-      : "var(--primary-color)"};
-  &:hover {
-    color: var(--main-color);
-  }
-
-  @media (max-width: 350px) {
-    padding: 0.25rem;
-  }
-`;
-
-const PaginationList = styled.ul`
-  display: flex;
-  justify-content: center;
-  gap: 0.25rem;
-`;
-
-const PaginationMenu = styled.nav`
-  margin-top: 2rem;
-`;
-
+import {
+  ButtonPage,
+  PaginationList,
+  PaginationMenu,
+} from "./paginationComics.styles";
 export default function PaginationComics() {
   const { setPagination, currentPage, setCurrentPage, totalResults } =
     useComics();
