@@ -62,7 +62,10 @@ export default function Comic({ id }: { id: string }) {
             )}
 
             <p>${comic.price}</p>
-            <CardAddButton onClick={() => addToCart(comic.id)}>
+            <CardAddButton
+              onClick={() => addToCart(comic.id)}
+              data-cy="add-cart-comic"
+            >
               <MdAddShoppingCart /> Add To Cart
             </CardAddButton>
           </ComicData>
