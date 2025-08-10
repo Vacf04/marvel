@@ -8,7 +8,7 @@ const AddToCart = styled.button`
   cursor: pointer;
 `;
 
-const CartIcon = styled(MdAddShoppingCart)`
+export const CartIcon = styled(MdAddShoppingCart)`
   width: 1.75rem;
   height: 1.75rem;
   transition: var(--transition);

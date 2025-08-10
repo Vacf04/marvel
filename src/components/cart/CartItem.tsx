@@ -6,28 +6,27 @@ import {
   CartItemControls,
   CartItemDescription,
   ControlButton,
-  ImageContainer,
-  ItemThumb,
   MinusQuantityIcon,
   PlusQuantityIcon,
   QuantityControl,
   RemoveFromCartIcon,
-  RareTag,
+  ItemImageContainer,
 } from "./CartItem.styles";
+import { ComicThumb, RareTag } from "../home/ComicCard.styles";
 
 export default function CartItem({ item }: { item: CartItemsComic }) {
   const { removeFromCart, plusQuantity, minusQuantity } = useCart();
   return (
     <CartItemArticle>
-      <ImageContainer>
+      <ItemImageContainer>
         {item.isRare && <RareTag data-cy="rare-item-cart">RARE</RareTag>}
-        <ItemThumb
+        <ComicThumb
           src={item.thumbnail.path + "." + item.thumbnail.extension}
           alt={item.title + " thumb"}
           width={100}
           height={200}
         />
-      </ImageContainer>
+      </ItemImageContainer>
       <CartItemDescription>
         <h3>{item.title}</h3>
         <p>${item.price * item.quantity}</p>

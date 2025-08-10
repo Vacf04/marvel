@@ -37,10 +37,26 @@ export const InputCoupon = styled(Input)`
 `;
 
 export const  DiscountValue = styled.p`
-  color: #116430d9;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 `;
+
+export const  ComicsValue = styled(DiscountValue)``;
 
 export const  FinalPrice = styled.p`
   margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`;
+
+export const  PriceText = styled.span`
+display: block;
+`;
+
+export const  PriceValue = styled.span`
+  display: block;
   color: #116430d9;
 `;
+
