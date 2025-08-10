@@ -20,8 +20,6 @@ export default function Comic({ id }: { id: string }) {
   const { comics } = useComics();
   const { addToCart, message } = useCart();
   const [comic, setComic] = useState<ComicWithRarity | null>(null);
-  console.log(message);
-
   if (!comics) {
     redirect("/");
   }

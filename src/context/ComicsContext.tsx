@@ -51,7 +51,6 @@ export const ComicsProvider = ({ children }: { children: ReactNode }) => {
         if (!comicData && error) {
           throw new Error(error);
         }
-        console.log(comicData);
         setTotalResults(comicData ? comicData.total : 0);
         const totalComics = comicData?.results.length;
         if (totalComics) {
