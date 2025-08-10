@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
  compiler: {
     styledComponents: true,
+    reactRemoveProperties: { properties: ['^data-cy$'] },
   },
   images: {
     remotePatterns: [
