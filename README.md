@@ -1,36 +1,129 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Loja de Quadrinhos Marvel
 
-## Getting Started
+## **Descrição do Projeto**
 
-First, run the development server:
+Este projeto é a solução para o desafio de desenvolvedor front-end da NeoApp. Trata-se de uma loja de quadrinhos virtual da Marvel, moderna e responsiva, desenvolvida para proporcionar uma experiência de usuário simples e agradável. O website permite a navegação por um catálogo de HQs, visualização individual dos produtos e um sistema de carrinho de compras com a possibilidade de aplicar cupons de desconto.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## **Tecnologias Utilizadas**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+O projeto foi construído utilizando as seguintes tecnologias:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Next.js**
+- **ContextAPI**
+- **Styled Components**
+- **Cypress**
+- **React Icons**
+- **Docker**
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## **Funcionalidades**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### **Essenciais**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Utilização de ReactJs ou NextJs **✅**
 
-## Deploy on Vercel
+Estilização feita com Styled Components **✅**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Realizar teste E2E com Cypress nos fluxos que achar necessário **✅**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Que a UI seja autoral do participante, esteticamente bonita e simples de usar **✅**
+
+Layout responsivo **✅**
+
+Ver o website rodando em algum host estático (Heroku, Netlify, Vercel, Github
+Pages, etc) **✅**
+
+### Bônus
+
+10% de Quadrinhos Raros **✅**
+
+Sistema de Cupons **✅**
+
+HTML Semântico **✅**
+
+Animações em CSS **✅**
+
+Utilização de Redux Toolkit para gerenciamento de estado global ❌
+
+Utilização de Docker na conteinerização da aplicação **🟡** (Tive problemas com o componente Image do next, a conteinerização funcionou, porém as imagens não funcionam)
+
+---
+
+## **Estrutura e Arquitetura**
+
+### **Como pensei o projeto**
+
+- **Next.js e SSR**: Decidi utilizar o Next.js com server actions para o fetch da api.
+- **ContextAPI**: Optei pelo ContextAPI por ter mais experiência e não ter muita familiaridade com o Redux Toolkit, porém com o ContextAPI foi possível gerenciar os estados de Paginação, os Quadrinhos e o do Carrinho.
+- **Testes E2E com Cypress**: Eu escrevi os testes para as funcionalidades de listagem, paginação e carrinho à medida que as desenvolvia.
+
+---
+
+## **Instalação e Execução**
+
+Siga os passos abaixo para rodar a aplicação localmente.
+
+### Pré-requisitos
+
+- Node.js (versão 18 ou superior)
+- npm (ou yarn)
+
+### 1. Clonar o repositório
+
+`git clone` 
+
+### 2. Instalar as dependências
+
+`npm install`
+
+### 3. Configurar as variáveis de ambiente
+
+Crie um arquivo `.env` na raiz do projeto com as suas chaves da API da Marvel.
+
+### 4. Rodar o projeto (Modo de Desenvolvimento)
+
+`npm run dev`
+
+Acesse `http://localhost:3000` no seu navegador.
+
+### 5. Cypress
+
+Modifique o cypress.config.ts na raiz do projeto e preencha com sua url.
+
+`npm run cy:open` → Para rodar o cypress.
+
+---
+
+### Rodar com o Docker
+
+`docker-compose up --build`
+
+---
+
+## **Variáveis de Ambiente**
+
+Crie o arquivo `.env` na raiz do projeto e preencha com as suas credenciais da API
+
+`MARVEL_PRIVATE_KEY=SUACHAVEAQUI
+MARVEL_PUBLIC_KEY=SUACHAVEAQUI`
+
+---
+
+## **Cupons de Desconto**
+
+Os seguintes cupons foram configurados:
+
+- COMMON_COUPON: Cupom para desconto de 10% em quadrinhos comuns.
+- RARE_COUPON: Cupom para desconto de 20% em quadrinhos raros.
+
+---
+
+## **Autor**
+
+**Víttor Franceschi**
+
+- **GitHub**: https://github.com/Vacf04
+- **LinkedIn**: https://www.linkedin.com/in/vittor-franceschi/
