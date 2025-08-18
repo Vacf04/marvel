@@ -2,7 +2,7 @@
 
 ## **Descrição do Projeto**
 
-Este projeto é a solução para o desafio de desenvolvedor front-end da NeoApp. Trata-se de uma loja de quadrinhos virtual da Marvel, moderna e responsiva, desenvolvida para proporcionar uma experiência de usuário simples e agradável. O website permite a navegação por um catálogo de HQs, visualização individual dos produtos e um sistema de carrinho de compras com a possibilidade de aplicar cupons de desconto.
+Trata-se de uma loja de quadrinhos virtual da Marvel, moderna e responsiva, desenvolvida para proporcionar uma experiência de usuário simples e agradável. O website permite a navegação por um catálogo de HQs, visualização individual dos produtos e um sistema de carrinho de compras com a possibilidade de aplicar cupons de desconto.
 
 ---
 
@@ -14,39 +14,23 @@ O projeto foi construído utilizando as seguintes tecnologias:
 - **ContextAPI**
 - **Styled Components**
 - **Cypress**
-- **React Icons**
 - **Docker**
 
 ---
 
 ## **Funcionalidades**
 
-### **Essenciais**
-
-Utilização de ReactJs ou NextJs **✅**
+Utilização de NextJs **✅**
 
 Estilização feita com Styled Components **✅**
 
-Realizar teste E2E com Cypress nos fluxos que achar necessário **✅**
-
-Que a UI seja autoral do participante, esteticamente bonita e simples de usar **✅**
+Testes com Cypress **✅**
 
 Layout responsivo **✅**
-
-Ver o website rodando em algum host estático (Heroku, Netlify, Vercel, Github
-Pages, etc) **✅**
-
-### Bônus
-
-10% de Quadrinhos Raros **✅**
-
-Sistema de Cupons **✅**
 
 HTML Semântico **✅**
 
 Animações em CSS **✅**
-
-Utilização de Redux Toolkit para gerenciamento de estado global ❌
 
 Utilização de Docker na conteinerização da aplicação **🟡** (Tive problemas com o componente Image do next, a conteinerização funcionou, porém as imagens não funcionam)
 
@@ -57,7 +41,7 @@ Utilização de Docker na conteinerização da aplicação **🟡** (Tive proble
 ### **Como pensei o projeto**
 
 - **Next.js e SSR**: Decidi utilizar o Next.js com server actions para o fetch da api.
-- **ContextAPI**: Optei pelo ContextAPI por ter mais experiência e não ter muita familiaridade com o Redux Toolkit, porém com o ContextAPI foi possível gerenciar os estados de Paginação, os Quadrinhos e o do Carrinho.
+- **ContextAPI**: Foi possível gerenciar os estados de Paginação, os Quadrinhos e o do Carrinho.
 - **Testes E2E com Cypress**: Eu escrevi os testes para as funcionalidades de listagem, paginação e carrinho à medida que as desenvolvia.
 
 ---
